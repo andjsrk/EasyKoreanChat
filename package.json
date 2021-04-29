@@ -2,7 +2,7 @@
 	"name": "ekc",
 	"description": "Use Korean easier in Minecraft",
 	"author": "andjsrk",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"scripts": {
 		"start": "electron .",
 		"build:win-ia32": "electron-builder --win portable --ia32",

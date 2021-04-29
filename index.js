@@ -124,7 +124,7 @@ class WrappedKeyEvent {
 		} else if ([ 96, 45, 61, 91, 93, 92, 59, 39, 44, 46, 47 ].includes(event.code)) { // Other symbols
 			if (event.shift) return String.fromCharCode(SHIFT_MAP.SYMBOL_SYMBOL[event.code])
 			else return String.fromCharCode(event.code)
-		}
+		} else if ([ 32 ].includes(event.code)) return String.fromCharCode(event.code)
 		switch (event.code) {
 			case 8: return 'Backspace'
 			case 9: return 'Tab'
@@ -132,8 +132,6 @@ class WrappedKeyEvent {
 			case 16: return 'Shift'
 			case 17: return 'Ctrl'
 			case 18: return 'Alt'
-			case 20: return 'CapsLock'
-			case 25: return 'Hanja'
 			case 37: return 'ArrowLeft'
 			case 38: return 'ArrowUp'
 			case 39: return 'ArrowRight'
@@ -183,7 +181,6 @@ iohook.on('keydown', event => {
 			App.sliceTypedContent(App.caretPosition, 1)
 			break
 	}
-	console.log(App.typedContent)
 })
 iohook.on('keyup', event => {
 	const key = new WrappedKeyEvent(event)
